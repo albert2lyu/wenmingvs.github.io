@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 <!--[if lte IE 9]><meta http-equiv="refresh" content="0;url=/ie.html"><![endif]-->
 
-<title>Git笔记</title>
+<title>使用Privoxy转换SSH到HTTP代理</title>
 <meta name="author" content="wenmingvs">
 
 <meta name="keywords" content="undefined">
@@ -29,7 +29,11 @@
       
       <li id="Java" class="tags__li tags-btn">Java</li>
       
-      <li id="Git" class="tags__li tags-btn">Git</li>
+      <li id="代理" class="tags__li tags-btn">代理</li>
+      
+      <li id="Mac" class="tags__li tags-btn">Mac</li>
+      
+      <li id="Android Studio" class="tags__li tags-btn">Android Studio</li>
       
     </ul>
     <div id="tags__bottom">
@@ -66,9 +70,23 @@
             
       
             
-                <a class="Git pl__all" href="/2015/12/07/Git笔记/" title="Git笔记">
+                <a class="代理 pl__all" href="/2015/12/07/使用Privoxy转换SSH到HTTP代理/" title="使用Privoxy转换SSH到HTTP代理">
                   
-                  <span class="pl__circle"></span><span class="pl__title">Git笔记</span><span class="pl__date">2015-12-07</span>
+                  <span class="pl__circle"></span><span class="pl__title">使用Privoxy转换SSH到HTTP代...</span><span class="pl__date">2015-12-07</span>
+                </a>
+            
+      
+            
+                <a class="Mac pl__all" href="/2015/12/08/MAC 上 github + hexo 搭建博客教程/" title="MAC 上 github + hexo 搭建博客教程">
+                  
+                  <span class="pl__circle"></span><span class="pl__title">MAC 上 github + hexo ...</span><span class="pl__date">2015-12-08</span>
+                </a>
+            
+      
+            
+                <a class="Android Studio pl__all" href="/2015/12/08/Mac下Android Studio环境变量配置/" title="Mac下Android Studio环境变量配置">
+                  
+                  <span class="pl__circle"></span><span class="pl__title">Mac下Android Studio环境...</span><span class="pl__date">2015-12-08</span>
                 </a>
             
       
@@ -79,27 +97,23 @@
     <div id="post">
       <div id="pjax">
         <article id="post__content">
-  <h1 id="post__title" data-identifier="2015-12-07">Git笔记</h1>
-  <h1 id="Git笔记">Git笔记</h1><p>[toc] </p>
-<h1 id="提交代码到本地与远端">提交代码到本地与远端</h1><ol>
-<li><strong>git init</strong>                                                //建立本地仓库</li>
-<li><strong>新建.ignore文件</strong>                               //来忽略不需要提交的东西</li>
-<li><strong>git add</strong>                                              //指定需要提交到仓库的文件：git add</li>
-<li><strong>git commit -m  第一次提交</strong>             //提交到本地仓库</li>
-<li><strong>git remote add origin github地址</strong>   //关联远程仓库</li>
-<li><strong>git push origin master  </strong>                     //提交到远程仓库</li>
+  <h1 id="post__title" data-identifier="2015-12-07">使用Privoxy转换SSH到HTTP代理</h1>
+  <h1 id="使用Privoxy转换SSH到HTTP代理">使用Privoxy转换SSH到HTTP代理</h1><ol>
+<li><p>下载Privoxy</p>
+</li>
+<li><p>编辑配置文件</p>
+</li>
 </ol>
-<h1 id="-ignore文件无效">.ignore文件无效</h1><p>一开始没有添加.ignore文件，或者添加了后期又做了修改，.ignore文件会无效，原因是source tree默认是不会跟踪.ignore的变化的，必须清空source tree跟踪到的缓存信息，再重新add文件到本地仓库</p>
-<p><strong>git rm -r –cached .</strong><br><strong>git add .</strong><br><strong>git commit -m “Refresh adding .gitignore file.”</strong></p>
-<p>如果是中途从 .gitignore 文件中移除某一文件类型，想要这个文件类型重新被 track，需要通过以下命令行的方式，让 .gitignore 文件生效：</p>
-<p><strong>git add -f *.class</strong><br><strong>git commit -m “Refresh removing .class from .gitignore file.”</strong></p>
-<h1 id="分支">分支</h1><p><strong>git branch </strong>//列出分支<br><strong>git checkout master</strong>//切换分支</p>
-<h1 id="从远端同步到本地">从远端同步到本地</h1><p><strong>git pull</strong>//与GitHub远程仓库同步<br><strong>git status</strong>//查看文件变更</p>
-<h1 id="创建个人站点">创建个人站点</h1><p>个人域名：wenmingvs.github.com</p>
-<h1 id="设置提交人的信息">设置提交人的信息</h1><p>git config </p>
-<h1 id="出现Permission_denied_(publickey)_错误">出现Permission denied (publickey) 错误</h1><p>本地端的SSH key与远端仓库的SSH不一致导致的，本地生成一个key，在添加到远端即可后面连续回车就好了，生成的文件会保存在/Users/you/.ssh/id_rsa中，打开它复制里面的全部文本到Github的新的SSH key 即可<br><strong>ssh-keygen -t rsa -b 4096 -C wenmingvs@gmail.com</strong></p>
-<h1 id="设置Git代理">设置Git代理</h1><p>git config –global http.proxy ‘socks5://127.0.0.1:1080’<br>git config –global https.proxy ‘socks5://127.0.0.1:1080’</p>
-<h1 id="使用Hexo写文章">使用Hexo写文章</h1>
+<p>sudo vim /usr/local/etc/privoxy/config<br>forward-socks5 / 127.0.0.1:7070 .</p>
+<ol>
+<li><p>搜索“listen-address”找到下面这一行，如果你想定义HTTP代理的端口（默认8118），在此修改：<br>listen-address  127.0.0.1:8080</p>
+</li>
+<li><p>重启<br>sudo /Applications/Privoxy/stopPrivoxy.sh<br>sudo /Applications/Privoxy/startPrivoxy.sh</p>
+</li>
+<li><p>netstat -an | grep 8118</p>
+</li>
+</ol>
+
 </article>
 <div id="post__share">
     <!-- 打赏入口 -->

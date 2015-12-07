@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 <!--[if lte IE 9]><meta http-equiv="refresh" content="0;url=/ie.html"><![endif]-->
 
-<title>Category: 人生感悟</title>
+<title>Mac下Android Studio环境变量配置</title>
 <meta name="author" content="wenmingvs">
 
 <meta name="keywords" content="undefined">
@@ -96,7 +96,36 @@
 
     <div id="post">
       <div id="pjax">
-        
+        <article id="post__content">
+  <h1 id="post__title" data-identifier="2015-12-08">Mac下Android Studio环境变量配置</h1>
+  <h1 id="Mac下Android_Studio环境变量配置">Mac下Android Studio环境变量配置</h1><p>[toc]</p>
+<h2 id="配置JDK环境变量">配置JDK环境变量</h2><p>我们要将java命令加到系统环境变量”PATH”中去。Mac上，Java默认安装在”/Library/Java/JavaVirtualMachines/jdk1.7.0_75.jdk/Contents/Home/”目录下。注意，中间”jdk1.7.0_75.jdk”目录会根据不同的版本改变。</p>
+<p>打开用户目录下”.bash_profile”文件</p>
+<p>$ vi ~/.bash_profile<br>加入以下配置</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=Library/Java/JavaVirtualMachines/jdk1.7.0_75.jdk/Contents/Home</span><br><span class="line">export PATH=$JAVA_HOME/bin:$PATH</span><br><span class="line">export JAVA_HOME=Library/Java/JavaVirtualMachines/jdk1.7.0_75.jdk/Contents/Home</span><br><span class="line">export PATH=$JAVA_HOME/bin:$PATH</span><br></pre></td></tr></table></figure>
+<p>测试JDK安装<br>重新打开命令行窗口，输入<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ java -version</span><br></pre></td></tr></table></figure></p>
+<p>看到下面的信息后，证明JDK已经安装成功了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">java version <span class="string">"1.7.0_75"</span></span><br><span class="line">Java(TM) <span class="function">SE Runtime <span class="title">Environment</span> <span class="params">(build <span class="number">1.7</span><span class="number">.0</span>_75-b13)</span></span><br><span class="line">Java <span class="title">HotSpot</span><span class="params">(TM)</span> 64-Bit Server <span class="title">VM</span> <span class="params">(build <span class="number">24.75</span>-b04, mixed mode)</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="配置AIDL环境变量">配置AIDL环境变量</h2><ol>
+<li>export PATH=/usr/bin:/usr/sbin:/bin:/sbin:/usr/X11R6/bin<br>这样可以保证命令行命令暂时可以使用。命令执行完之后先不要关闭终端。</li>
+<li>touch .bash_profile</li>
+<li>open -e .bash_profile</li>
+<li>export PATH=${PATH}:/Users/wenmingvs/Documents/Android/AndroidSDK/sdk/tools:/Users/wenmingvs/Documents/Android/AndroidSDK/sdk/platform-tools</li>
+<li>然后，退出vim编辑状态，按“:wq”，保存。</li>
+<li>source ~/.bash_profile</li>
+<li>验证：输入adb回车。如果未显示command not found，说明此命令有效，环境变量设置完成。</li>
+</ol>
+
+</article>
+<div id="post__share">
+    <!-- 打赏入口 -->
+    <a id="icon-heart" class="fontello" href="#"></a>
+</div>
+
+    <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more">分享到：</a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a><a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网">豆瓣网</a><a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记">有道云笔记</a><a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记">印象笔记</a></div>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":["mshare","qzone","tsina","bdysc","weixin","renren","tqq","bdxc","kaixin001","tqf","tieba","douban","bdhome","sqq","thx","ibaidu","mogujie","diandian","huaban","duitang","hx","fx","youdao","sdo","qingbiji","mail","isohu","wealink","ty","fbook","twi","linkedin","h163","evernotecn","print"],"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16},"image":{"viewList":["qzone","tsina","tqq","weixin","douban","youdao","evernotecn"],"viewText":"分享到：","viewSize":"16"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
 
       
       </div>
