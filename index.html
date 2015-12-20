@@ -29,11 +29,7 @@
       
       <li id="Java" class="tags__li tags-btn">Java</li>
       
-      <li id="代理" class="tags__li tags-btn">代理</li>
-      
-      <li id="Mac" class="tags__li tags-btn">Mac</li>
-      
-      <li id="Android Studio" class="tags__li tags-btn">Android Studio</li>
+      <li id="Git" class="tags__li tags-btn">Git</li>
       
     </ul>
     <div id="tags__bottom">
@@ -70,23 +66,9 @@
             
       
             
-                <a class="代理 pl__all" href="/2015/12/07/使用Privoxy转换SSH到HTTP代理/" title="使用Privoxy转换SSH到HTTP代理">
+                <a class="Git pl__all" href="/2015/12/20/Git笔记/" title="Git笔记">
                   
-                  <span class="pl__circle"></span><span class="pl__title">使用Privoxy转换SSH到HTTP代...</span><span class="pl__date">2015-12-07</span>
-                </a>
-            
-      
-            
-                <a class="Mac pl__all" href="/2015/12/08/MAC 上 github + hexo 搭建博客教程/" title="MAC 上 github + hexo 搭建博客教程">
-                  
-                  <span class="pl__circle"></span><span class="pl__title">MAC 上 github + hexo ...</span><span class="pl__date">2015-12-08</span>
-                </a>
-            
-      
-            
-                <a class="Android Studio pl__all" href="/2015/12/08/Mac下Android Studio环境变量配置/" title="Mac下Android Studio环境变量配置">
-                  
-                  <span class="pl__circle"></span><span class="pl__title">Mac下Android Studio环境...</span><span class="pl__date">2015-12-08</span>
+                  <span class="pl__circle"></span><span class="pl__title">Git笔记</span><span class="pl__date">2015-12-20</span>
                 </a>
             
       
@@ -98,24 +80,15 @@
       <div id="pjax">
         
     <article id="post__content">
-      <h1 id="post__title" data-identifier="2015-12-08">Mac下Android Studio环境变量配置</h1>
-      <h1 id="Mac下Android_Studio环境变量配置">Mac下Android Studio环境变量配置</h1><p>[toc]</p>
-<h2 id="配置JDK环境变量">配置JDK环境变量</h2><p>我们要将java命令加到系统环境变量”PATH”中去。Mac上，Java默认安装在”/Library/Java/JavaVirtualMachines/jdk1.7.0_75.jdk/Contents/Home/”目录下。注意，中间”jdk1.7.0_75.jdk”目录会根据不同的版本改变。</p>
-<p>打开用户目录下”.bash_profile”文件</p>
-<p>$ vi ~/.bash_profile<br>加入以下配置</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=Library/Java/JavaVirtualMachines/jdk1.7.0_75.jdk/Contents/Home</span><br><span class="line">export PATH=$JAVA_HOME/bin:$PATH</span><br><span class="line">export JAVA_HOME=Library/Java/JavaVirtualMachines/jdk1.7.0_75.jdk/Contents/Home</span><br><span class="line">export PATH=$JAVA_HOME/bin:$PATH</span><br></pre></td></tr></table></figure>
-<p>测试JDK安装<br>重新打开命令行窗口，输入<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ java -version</span><br></pre></td></tr></table></figure></p>
-<p>看到下面的信息后，证明JDK已经安装成功了。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">java version <span class="string">"1.7.0_75"</span></span><br><span class="line">Java(TM) <span class="function">SE Runtime <span class="title">Environment</span> <span class="params">(build <span class="number">1.7</span><span class="number">.0</span>_75-b13)</span></span><br><span class="line">Java <span class="title">HotSpot</span><span class="params">(TM)</span> 64-Bit Server <span class="title">VM</span> <span class="params">(build <span class="number">24.75</span>-b04, mixed mode)</span></span></span><br></pre></td></tr></table></figure>
-<h2 id="配置AIDL环境变量">配置AIDL环境变量</h2><ol>
-<li>export PATH=/usr/bin:/usr/sbin:/bin:/sbin:/usr/X11R6/bin<br>这样可以保证命令行命令暂时可以使用。命令执行完之后先不要关闭终端。</li>
-<li>touch .bash_profile</li>
-<li>open -e .bash_profile</li>
-<li>export PATH=${PATH}:/Users/wenmingvs/Documents/Android/AndroidSDK/sdk/tools:/Users/wenmingvs/Documents/Android/AndroidSDK/sdk/platform-tools</li>
-<li>然后，退出vim编辑状态，按“:wq”，保存。</li>
-<li>source ~/.bash_profile</li>
-<li>验证：输入adb回车。如果未显示command not found，说明此命令有效，环境变量设置完成。</li>
-</ol>
+      <h1 id="post__title" data-identifier="2015-12-20">Git笔记</h1>
+      <h1 id="Git笔记">Git笔记</h1><p>[toc]</p>
+<h2 id="0-_初始化配置">0. 初始化配置</h2><p>配置SSH key ssh-keygen -t rsa -b 4096 -C wenmingvs@gmail.com</p>
+<p>git config –global user.name “wenmingvs”<br>git config –global user.email “wenmingvs@gmail.com”</p>
+<h2 id="1-_提交代码到本地与远端">1. 提交代码到本地与远端</h2><p>git init<br>add .ignore<br>git add .<br>git commit -m “first commit”<br>git remote add origin git@github.com:wenmingvs/AcitionBarListView.git<br>git push -u origin master</p>
+<h2 id="2-_-ignore文件无效">2. .ignore文件无效</h2><p>git rm -r –cached .<br>git add .<br>git commit -m “Refresh adding .gitignore file.”</p>
+<h2 id="3-_其他命令">3. 其他命令</h2><p>git branch //列出分支<br>git checkout master//切换分支<br>git status//查看文件变更</p>
+<h2 id="4-_设置Git代理">4. 设置Git代理</h2><p>git config –global http.proxy ‘socks5://127.0.0.1:1080’<br>git config –global https.proxy ‘socks5://127.0.0.1:1080’</p>
+<h2 id="5-_分支管理">5. 分支管理</h2><p>查看分支：git branch<br>创建分支：git branch name<br>切换分支：git checkout name<br>创建+切换分支：git checkout -b name<br>合并某分支到当前分支：git merge name<br>删除分支：git branch -d name<br>删除远程分支：git push origin :name<br>撤销未提交的修改：git checkout src/com/android/…/xxx.java</p>
 
     </article>
     <div id="post__share">
