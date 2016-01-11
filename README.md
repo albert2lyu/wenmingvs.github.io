@@ -1,3 +1,2 @@
-# 点击访问个人技术播客
 
-wenmingvs.github.io
+[点击访问个人技术播客](http://wenmingvs.github.io/)
